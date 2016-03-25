@@ -10,6 +10,7 @@ class MainHandler(tornado.web.RequestHandler):
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/nodes", nodes.NodeHandler),
+    (r"/nodes/os", nodes.osHandler),
 ])
 
 if __name__ == "__main__":
