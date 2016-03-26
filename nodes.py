@@ -1,17 +1,28 @@
 import tornado.web
+import json
 import JsonRequest
+import subprocess
 
 class NodeHandler(JsonRequest.JsonRequestHandler):
 	def get(self):
 		self.write("Hello, get node")
+		subprocess.call("ls -l",shell=True)
 	def post(self):
 		body = self.json_body
 		headers = self.request.headers
+
+		node_name = body["name"]
+		node_os = body["os"]
+		node_ip = body["host"]
+		node_role = body["role"]
+		node_user = body["user"]
+		node_pass = body["password"]
 		self.write("Hello, post node")
-		print(type(headers))
-		print(type(body))
-		print(body["name"])
-		print(body["age"])
+		self.write(node_name)
+		self.write(node_os)
+		self.write(node_ip)
+		self.write(node_user)
+		self.write(node_pass)
 
 	def put(self):
 		self.write("Hello, put node")
@@ -21,6 +32,5 @@ class NodeHandler(JsonRequest.JsonRequestHandler):
 class osHandler(JsonRequest.JsonRequestHandler):
 	def get(self):
 		self.write('send support os')
-		print(self.get_query_arguments('name'))
-		print(self.get_query_arguments('age'))
-		
+		os = {"support_os":["windows","ubuntu","centos"]}
+		self.write(json.dumps(os))
