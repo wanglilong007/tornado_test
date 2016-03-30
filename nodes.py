@@ -1,4 +1,6 @@
-import tornado.web
+from tornado.web import Finish 
+import BasicAuthRequest
+import DigestAuthRequest
 import json
 import JsonRequest
 import subprocess
@@ -29,7 +31,7 @@ class NodeHandler(JsonRequest.JsonRequestHandler):
 	def delete(self):
 		self.write("Hello, delete node")
 
-class osHandler(JsonRequest.JsonRequestHandler):
+class osHandler(DigestAuthRequest.DigestAuthRequestHandler):
 	def get(self):
 		self.write('send support os')
 		os = {"support_os":["windows","ubuntu","centos"]}
