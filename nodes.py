@@ -8,21 +8,14 @@ class NodeHandler(tornado.web.RequestHandler):
 	@basic_auth
 	@json_handle
 	def get(self):
-		self.write("Hello, get node")
+		node = {"name":"esurvey1","os":"windows","ip":"10.68.51.120"}
+		self.write(json.dumps(node))
 
 	@basic_auth
 	@json_handle
 	def post(self):
 		body = self.json_body
 		headers = self.request.headers
-		'''
-		node_name = body["name"]
-		node_os = body["os"]
-		node_ip = body["host"]
-		node_role = body["role"]
-		node_user = body["user"]
-		node_pass = body["password"]
-		'''
 		self.set_header('Content-Type', 'application/json')
 		self.write(json.dumps(body))
 
@@ -41,7 +34,6 @@ class osHandler(tornado.web.RequestHandler):
 	@basic_auth
 	@json_handle
 	def get(self):
-		#self.write('send support os')
 		os = {"total":3,"support_os":["windows","ubuntu","centos"],"version":"F"}
 		self.set_header('Content-Type', 'application/json')
 		self.write(json.dumps(os))
