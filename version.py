@@ -1,6 +1,5 @@
 import json
 import tornado.web
-import MyRequestHandler
 
 class VersionHandler(tornado.web.RequestHandler):
 

@@ -1,8 +1,8 @@
 
 from peewee import *
-import SqliteBaseModel
+from SqliteBaseModel import *
 
-class User(SqliteBaseModel.BaseModel):
+class User(BaseModel):
 	name = CharField()
 	password = CharField()
 	sex = CharField()
