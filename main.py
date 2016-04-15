@@ -9,6 +9,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 application = tornado.web.Application([
     (r"/", MainHandler),
+    (r"/users", Resource.users.UserHandler),
     (r"/nodes", Resource.nodes.NodeHandler),
     (r"/nodes/os", Resource.nodes.osHandler),
     (r"/version",Resource.version.VersionHandler),

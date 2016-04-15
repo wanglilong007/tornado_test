@@ -15,7 +15,7 @@ def basic_auth(self):
 			auth = True
 	if auth == False:
 		self.set_status(401)
-		self.set_header('WWW-Authenticate', 'Basic realm="something"')
+		self.set_header('WWW-Authenticate', 'Basic realm="password"')
 		raise Finish()
 
 def digest_auth(self):
