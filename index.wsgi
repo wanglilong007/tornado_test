@@ -1,6 +1,6 @@
 import tornado.wsgi
 import sae
-sae.add_vendor_dir('vendor')
+#sae.add_vendor_dir('vendor')
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
