@@ -1,8 +1,6 @@
 import tornado.ioloop
 import tornado.web
 import Resource
-import tornado.wsgi
-import sae
 #from nodes import NodeHandler
 
 class MainHandler(tornado.web.RequestHandler):
@@ -17,11 +15,6 @@ application = tornado.web.Application([
     (r"/version",Resource.version.VersionHandler),
 ])
 
-application = sae.create_wsgi_app(app)
-
-
-'''
 if __name__ == "__main__":
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
-'''
